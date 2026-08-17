@@ -1,0 +1,7 @@
+PASS - monthly 79k
+PASS - 12 months then 0
+PASS - lifetime 699k
+PASS - lynk monthly placeholder
+PASS - lynk lifetime placeholder
+PASS - fair-use note
+PASS - mobile pricing css
