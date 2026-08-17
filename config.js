@@ -15,11 +15,11 @@ window.BIZCONTROL_LANDING = {
     onlineLifetimeNormal: "Rp899.000"
   },
   links: {
-    excelBasic: "http://lynk.id/noboncosiklan/j3njon1md6we/checkout",
-    excelPro: "http://lynk.id/noboncosiklan/649vd9o48nvz/checkout",
-    excelUltimate: "http://lynk.id/noboncosiklan/qmex9ey948rq/checkout",
-    onlineMonthly: "http://lynk.id/noboncosiklan/rdkp8396k293/checkout",
-    onlineLifetime: "http://lynk.id/noboncosiklan/48g25lrg6926/checkout",
+    excelBasic: "https://lynk.id/USERNAME/PRODUCT-BASIC",
+    excelPro: "https://lynk.id/USERNAME/PRODUCT-PRO",
+    excelUltimate: "https://lynk.id/USERNAME/PRODUCT-ULTIMATE",
+    onlineMonthly: "https://lynk.id/USERNAME/PRODUCT-ONLINE-BULANAN",
+    onlineLifetime: "https://lynk.id/USERNAME/PRODUCT-ONLINE-LIFETIME",
     demo: "https://bizcontrolpos.vercel.app",
     whatsapp: "https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20mau%20tanya%20tentang%20BizControl."
   }

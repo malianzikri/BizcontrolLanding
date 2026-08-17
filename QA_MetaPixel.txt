@@ -1,0 +1,7 @@
+PASS - pixel id present
+PASS - fbq init present
+PASS - PageView present
+PASS - pixel script only once
+PASS - noscript pixel only once
+PASS - script before head close
+PASS - noscript after body

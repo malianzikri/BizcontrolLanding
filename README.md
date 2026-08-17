@@ -46,3 +46,16 @@ Iklan / Thread / WhatsApp
 → Pilih Excel atau Online
 → Checkout Lynk
 → Delivery / onboarding
+
+
+## Meta Pixel
+
+Meta Pixel sudah terpasang di `index.html`.
+
+- Pixel ID: `1081611444299321`
+- Event otomatis saat halaman dibuka: `PageView`
+- Script Pixel berada di `<head>`
+- Fallback `<noscript>` berada tepat setelah `<body>`
+
+Untuk memastikan Pixel aktif setelah deploy, buka website menggunakan Meta Pixel Helper
+atau cek Events Manager → Test Events.
