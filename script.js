@@ -1,32 +1,12 @@
 (function(){
   const cfg = window.BIZCONTROL_LANDING || {prices:{},links:{}};
 
-  // Data produk untuk tracking Meta Pixel
-  const checkoutProducts = {
-    excelBasic: {
-      name: 'BizControl Excel Basic',
-      category: 'BizControl Excel',
-      value: 29000
-    },
-
-    excelPro: {
-      name: 'BizControl Excel Pro',
-      category: 'BizControl Excel',
-      value: 59000
-    },
-
-    excelUltimate: {
-      name: 'BizControl Excel Ultimate',
-      category: 'BizControl Excel',
-      value: 99000
-    },
-
+  const products = {
     onlineMonthly: {
       name: 'BizControl Online - Bulanan',
       category: 'BizControl Online',
       value: 79000
     },
-
     onlineLifetime: {
       name: 'BizControl Online - Sekali Bayar',
       category: 'BizControl Online',
@@ -34,59 +14,78 @@
     }
   };
 
-  function trackInitiateCheckout(key){
-    const product = checkoutProducts[key];
-
-    // Kalau Pixel belum aktif, link tetap jalan normal
-    if(!product || typeof window.fbq !== 'function') return;
-
-    fbq('track', 'InitiateCheckout', {
-      content_ids: [key],
-      content_name: product.name,
-      content_category: product.category,
-      content_type: 'product',
-      value: product.value,
-      currency: 'IDR',
-      num_items: 1
-    });
+  function fbTrack(event, params){
+    if(typeof window.fbq === 'function') window.fbq('track', event, params || {});
   }
 
-  // Setting link dari config.js
-  document.querySelectorAll('[data-link]').forEach(a => {
-    const key = a.dataset.link;
+  function fbTrackCustom(event, params){
+    if(typeof window.fbq === 'function') window.fbq('trackCustom', event, params || {});
+  }
 
-    if(cfg.links && cfg.links[key]){
-      a.href = cfg.links[key];
+  // Product-specific landing page: one meaningful content view per page load.
+  fbTrack('ViewContent', {
+    content_ids: ['bizcontrolOnline'],
+    content_name: 'BizControl Online',
+    content_category: 'BizControl Online',
+    content_type: 'product',
+    currency: 'IDR'
+  });
 
-      if(key !== 'demo'){
-        a.target = '_blank';
-      }
+  const currentTracking = new URLSearchParams(location.search);
+  const passthroughKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
 
-      a.rel = 'noopener noreferrer';
+  function withTracking(rawUrl){
+    if(!rawUrl || rawUrl === '#') return rawUrl;
+    try{
+      const url = new URL(rawUrl, location.href);
+      passthroughKeys.forEach(k => {
+        const v = currentTracking.get(k);
+        if(v && !url.searchParams.has(k)) url.searchParams.set(k, v);
+      });
+      return url.toString();
+    }catch(_){
+      return rawUrl;
+    }
+  }
+
+  document.querySelectorAll('[data-link]').forEach(el => {
+    const key = el.dataset.link;
+    const configured = cfg.links && cfg.links[key];
+    if(configured){
+      el.href = withTracking(configured);
+      if(key !== 'demo') el.target = '_blank';
+      el.rel = 'noopener noreferrer';
     }
 
-    // Hanya tombol pembelian yang dihitung InitiateCheckout
-    if(checkoutProducts[key]){
-      a.addEventListener('click', function(){
-        trackInitiateCheckout(key);
+    if(products[key]){
+      el.addEventListener('click', function(){
+        const p = products[key];
+        fbTrack('InitiateCheckout', {
+          content_ids: [key],
+          content_name: p.name,
+          content_category: p.category,
+          content_type: 'product',
+          value: p.value,
+          currency: 'IDR',
+          num_items: 1
+        });
+      });
+    } else if(key === 'demo'){
+      el.addEventListener('click', function(){
+        fbTrackCustom('DemoStart', {content_name:'BizControl Online Demo'});
+      });
+    } else if(key === 'whatsapp'){
+      el.addEventListener('click', function(){
+        fbTrackCustom('ContactAdmin', {content_name:'BizControl Online'});
       });
     }
   });
 
-  // Setting harga dari config.js
   document.querySelectorAll('[data-price]').forEach(el => {
     const key = el.dataset.price;
-
-    if(cfg.prices && cfg.prices[key]){
-      el.textContent = cfg.prices[key];
-    }
+    if(cfg.prices && cfg.prices[key]) el.textContent = String(cfg.prices[key]).replace(/^Rp\s*/i,'');
   });
 
-  // Tahun footer
   const year = document.getElementById('year');
-
-  if(year){
-    year.textContent = new Date().getFullYear();
-  }
-
+  if(year) year.textContent = new Date().getFullYear();
 })();
