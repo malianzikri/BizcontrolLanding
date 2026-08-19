@@ -37,3 +37,15 @@ CATATAN OFFER
 - Setelah pembayaran ke-12: lisensi BizControl lunas dan biaya langganan BizControl Rp0.
 - Sekali bayar: Rp699.000.
 - Layanan tambahan tertentu tetap dapat berbiaya terpisah.
+
+
+CRO V2 TAMBAHAN
+- Hero difokuskan ke pain owner, bukan daftar fitur.
+- CTA utama demo 2 menit; CTA beli tetap terlihat.
+- Monthly Rp79.000 dijadikan pilihan utama, sekali bayar jadi alternatif.
+- Ditambah contoh situasi owner, reassurance sebelum checkout, dan trust tanpa testimonial palsu.
+- Custom event tambahan untuk analisa landing page:
+  * PricingView = pengunjung sampai melihat harga
+  * Scroll75 = pengunjung membaca sekitar 75% halaman
+- Jangan gunakan PricingView / Scroll75 / DemoStart untuk objective Sales.
+- Untuk C2 gunakan standard event InitiateCheckout.

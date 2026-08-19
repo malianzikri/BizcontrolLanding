@@ -14,3 +14,27 @@
 .faq-wrap{max-width:900px}.faq-list{display:grid;gap:10px}.faq-list details{background:#fff;border:1px solid var(--border);border-radius:15px;padding:0 18px}.faq-list summary{cursor:pointer;padding:17px 0;font-weight:850}.faq-list p{color:var(--muted);font-size:14px;margin:0;padding:0 0 17px}.final-cta{padding-top:30px}.final-card{display:flex;justify-content:space-between;align-items:center;gap:40px;border-radius:28px;padding:38px;background:linear-gradient(135deg,var(--green2),var(--navy2));color:#fff}.final-card p{color:#c9d8d4}.light-eyebrow{color:#9ed3bd}.final-actions{display:flex;flex-wrap:wrap;gap:10px;min-width:max-content}footer{padding:30px 0 90px;background:#102a27;color:#d7e3df}.footer-wrap{display:flex;align-items:center;gap:28px}.footer-brand .brand-mark{background:var(--gold);color:var(--navy2)}.footer-brand small{color:#9bb6ae}.footer-wrap p{margin-left:auto;font-size:12px;color:#9bb6ae}.footer-wrap>a{font-size:13px;font-weight:800}.mobile-cta{display:none}
 @media(max-width:900px){.desktop-nav{display:none}.nav-wrap>.btn{margin-left:auto}.hero-grid,.demo-card{grid-template-columns:1fr}.hero{padding-top:46px}.hero-copy{text-align:center}.hero-actions,.micro-proof{justify-content:center}.product-preview{max-width:650px;margin:auto;transform:none}.pain-grid{grid-template-columns:1fr 1fr}.feature-grid{grid-template-columns:1fr 1fr}.pricing-grid{grid-template-columns:1fr;max-width:620px}.steps-grid{grid-template-columns:1fr 1fr}.final-card{display:grid;text-align:center}.final-actions{justify-content:center}.footer-wrap{flex-wrap:wrap}.footer-wrap p{margin-left:0;width:100%}}
 @media(max-width:620px){body{padding-bottom:74px}.container{width:min(100% - 28px,var(--max))}.section{padding:58px 0}.site-header{position:relative}.nav-wrap{min-height:64px}.nav-wrap>.btn{display:none}.hero{padding-top:38px}.hero h1{font-size:39px}.hero-lead{font-size:16px}.hero-actions{display:grid}.hero-actions .btn{width:100%}.micro-proof{display:grid;gap:6px}.product-preview{border-radius:18px}.preview-body{grid-template-columns:1fr}.preview-sidebar{display:none}.preview-main{padding:17px}.metric-grid{grid-template-columns:1fr 1fr}.metric-grid>div:last-child{grid-column:1/-1}.pain-grid,.feature-grid,.steps-grid{grid-template-columns:1fr}.pain-grid article{padding:13px}.demo-card{padding:25px 20px}.check-list.compact{grid-template-columns:1fr}.price-card{padding:24px 20px}.price strong{font-size:43px}.support-box{display:grid;text-align:center}.support-box .btn{width:100%}.final-card{padding:28px 20px}.final-actions{display:grid;min-width:0}.footer-wrap{display:grid;text-align:center;justify-items:center}.mobile-cta{position:fixed;z-index:80;left:0;right:0;bottom:0;display:grid;grid-template-columns:.8fr 1.2fr;gap:8px;padding:10px 12px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--border)}.mobile-cta .btn{padding:12px 8px;font-size:13px}}
+
+/* CRO V2 */
+.hero-copy strong{color:var(--text)}
+.owner-section{padding-top:18px}
+.owner-card{display:grid;grid-template-columns:.85fr 1.15fr;gap:36px;align-items:center;padding:34px;border:1px solid var(--border);border-radius:26px;background:#fff;box-shadow:0 12px 34px rgba(16,24,40,.05)}
+.owner-copy h2,.trust-card h2{font-size:clamp(28px,3.5vw,40px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px}
+.owner-copy p{color:var(--muted);margin:0}
+.owner-points{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.owner-points>div{border:1px solid #e4ebe9;border-radius:16px;padding:16px;background:#f9fbfa}
+.owner-points span{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--mint);color:var(--green);font-size:10px;font-weight:900;margin-bottom:9px}
+.owner-points b,.owner-points small{display:block}
+.owner-points b{font-size:14px}
+.owner-points small{font-size:12px;color:var(--muted);margin-top:4px}
+.buy-reassurance{max-width:900px;margin:18px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:9px 14px}
+.buy-reassurance span{font-size:12px;font-weight:750;color:#3f514b}
+.trust-section{padding-top:20px}
+.trust-card{border-radius:24px;background:#fff;border:1px solid var(--border);padding:32px}
+.trust-card>div:first-child{max-width:720px}
+.trust-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.trust-tags span{padding:9px 12px;border-radius:99px;background:var(--mint);color:var(--green2);font-size:12px;font-weight:800}
+.trust-note{font-size:12px;color:var(--muted);margin:18px 0 0}
+.price-card.featured:before{content:'Pilihan utama';position:absolute;right:20px;top:20px;color:var(--green);font-weight:900;font-size:11px}
+@media(max-width:900px){.owner-card{grid-template-columns:1fr}.owner-points{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.owner-card{padding:22px 18px}.owner-points{grid-template-columns:1fr}.trust-card{padding:24px 19px}.buy-reassurance{display:grid;justify-content:stretch;text-align:center}}

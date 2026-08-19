@@ -86,6 +86,34 @@
     if(cfg.prices && cfg.prices[key]) el.textContent = String(cfg.prices[key]).replace(/^Rp\s*/i,'');
   });
 
+  // Funnel diagnostics for CRO. Do not use these custom events as the Sales optimization event.
+  let pricingTracked = false;
+  let scroll75Tracked = false;
+
+  const priceSection = document.getElementById('harga');
+  if(priceSection && 'IntersectionObserver' in window){
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting && !pricingTracked){
+          pricingTracked = true;
+          fbTrackCustom('PricingView', {content_name:'BizControl Online Pricing'});
+          observer.disconnect();
+        }
+      });
+    }, {threshold:0.35});
+    observer.observe(priceSection);
+  }
+
+  window.addEventListener('scroll', function(){
+    if(scroll75Tracked) return;
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    if(max > 0 && window.scrollY / max >= 0.75){
+      scroll75Tracked = true;
+      fbTrackCustom('Scroll75', {content_name:'BizControl Online Landing'});
+    }
+  }, {passive:true});
+
   const year = document.getElementById('year');
   if(year) year.textContent = new Date().getFullYear();
 })();
