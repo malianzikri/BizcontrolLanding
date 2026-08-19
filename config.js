@@ -20,7 +20,7 @@ window.BIZCONTROL_LANDING = {
     excelUltimate: "http://lynk.id/noboncosiklan/qmex9ey948rq/checkout",
     onlineMonthly: "http://lynk.id/noboncosiklan/rdkp8396k293/checkout",
     onlineLifetime: "http://lynk.id/noboncosiklan/48g25lrg6926/checkout",
-    demo: "https://bizcontrolpos.vercel.app",
+    demo: "https://bizcontrolpos.vercel.app/?demo=1",
     whatsapp: "https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20mau%20tanya%20tentang%20BizControl."
   }
 };
