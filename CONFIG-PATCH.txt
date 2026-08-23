@@ -1,0 +1,6 @@
+Tambahkan 2 baris ini di dalam `links` pada config.js landing production:
+
+whatsappMonthly: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20sudah%20melihat/coba%20demo%20BizControl%20Online%20dan%20ingin%20aktivasi%20paket%20Rp79.000/bulan.%20Bisa%20dibantu%20proses%20aktivasi%20dan%20pembayarannya%3F',
+whatsappLifetime: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20ingin%20aktivasi%20BizControl%20Online%20paket%20sekali%20bayar%20Rp699.000.%20Bisa%20dibantu%20proses%20aktivasi%20dan%20pembayarannya%3F',
+
+Pastikan key `whatsapp` tetap ada untuk tombol bantuan umum.

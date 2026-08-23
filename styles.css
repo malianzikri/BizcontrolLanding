@@ -38,3 +38,13 @@
 .price-card.featured:before{content:'Pilihan utama';position:absolute;right:20px;top:20px;color:var(--green);font-weight:900;font-size:11px}
 @media(max-width:900px){.owner-card{grid-template-columns:1fr}.owner-points{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.owner-card{padding:22px 18px}.owner-points{grid-template-columns:1fr}.trust-card{padding:24px 19px}.buy-reassurance{display:grid;justify-content:stretch;text-align:center}}
+
+/* V3 Assisted Closing */
+.assisted-close-box{max-width:900px;margin:0 auto 20px;padding:22px 24px;border:1px solid #cfe2da;border-radius:20px;background:linear-gradient(135deg,#edf8f3,#fbfdfc);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.assisted-close-box h3{margin:0 0 7px;font-size:22px;letter-spacing:-.02em}
+.assisted-close-box p{margin:0;color:var(--muted);font-size:13px;max-width:650px}
+.assisted-close-box .eyebrow{margin-bottom:6px}
+.assisted-close-box .btn{flex:0 0 auto;white-space:nowrap}
+.direct-checkout-link{display:block;text-align:center;margin-top:12px;font-size:12px;font-weight:850;color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.direct-checkout-link:hover{color:#155d43}
+@media(max-width:760px){.assisted-close-box{display:grid;padding:19px}.assisted-close-box .btn{width:100%}}

@@ -52,7 +52,8 @@
     const key = el.dataset.link;
     const configured = cfg.links && cfg.links[key];
     if(configured){
-      el.href = withTracking(configured);
+      const isWhatsApp = key === 'whatsapp' || key === 'whatsappMonthly' || key === 'whatsappLifetime';
+      el.href = isWhatsApp ? configured : withTracking(configured);
       if(key !== 'demo') el.target = '_blank';
       el.rel = 'noopener noreferrer';
     }
@@ -74,9 +75,29 @@
       el.addEventListener('click', function(){
         fbTrackCustom('DemoStart', {content_name:'BizControl Online Demo'});
       });
+    } else if(key === 'whatsappMonthly'){
+      el.addEventListener('click', function(){
+        fbTrack('Lead', {
+          content_name:'BizControl Online - Assisted Closing Monthly',
+          content_category:'BizControl Online',
+          value:79000,
+          currency:'IDR'
+        });
+        fbTrackCustom('WhatsAppSalesClick', {plan:'monthly', value:79000, currency:'IDR'});
+      });
+    } else if(key === 'whatsappLifetime'){
+      el.addEventListener('click', function(){
+        fbTrack('Lead', {
+          content_name:'BizControl Online - Assisted Closing Lifetime',
+          content_category:'BizControl Online',
+          value:699000,
+          currency:'IDR'
+        });
+        fbTrackCustom('WhatsAppSalesClick', {plan:'lifetime', value:699000, currency:'IDR'});
+      });
     } else if(key === 'whatsapp'){
       el.addEventListener('click', function(){
-        fbTrackCustom('ContactAdmin', {content_name:'BizControl Online'});
+        fbTrackCustom('ContactAdmin', {content_name:'BizControl Online', purpose:'support'});
       });
     }
   });
