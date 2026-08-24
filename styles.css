@@ -48,3 +48,6 @@
 .direct-checkout-link{display:block;text-align:center;margin-top:12px;font-size:12px;font-weight:850;color:var(--green);text-decoration:underline;text-underline-offset:3px}
 .direct-checkout-link:hover{color:#155d43}
 @media(max-width:760px){.assisted-close-box{display:grid;padding:19px}.assisted-close-box .btn{width:100%}}
+
+/* V3.1 link safety */
+[data-link][aria-disabled="true"]{opacity:.55;cursor:not-allowed;pointer-events:auto}

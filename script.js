@@ -14,6 +14,18 @@
     }
   };
 
+  // Fallback link agar CTA WhatsApp tetap berfungsi walau config.js production
+  // belum memiliki key assisted-closing terbaru.
+  const fallbackLinks = {
+    whatsapp: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20ingin%20tanya%20tentang%20BizControl%20Online.',
+    whatsappMonthly: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20sudah%20melihat%2Fcoba%20demo%20BizControl%20Online%20dan%20ingin%20aktivasi%20paket%20Rp79.000%2Fbulan.%20Bisa%20dibantu%20proses%20aktivasi%20dan%20pembayarannya%3F',
+    whatsappLifetime: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20ingin%20aktivasi%20BizControl%20Online%20paket%20sekali%20bayar%20Rp699.000.%20Bisa%20dibantu%20proses%20aktivasi%20dan%20pembayarannya%3F'
+  };
+
+  function resolveLink(key){
+    return (cfg.links && cfg.links[key]) || fallbackLinks[key] || null;
+  }
+
   function fbTrack(event, params){
     if(typeof window.fbq === 'function') window.fbq('track', event, params || {});
   }
@@ -50,12 +62,27 @@
 
   document.querySelectorAll('[data-link]').forEach(el => {
     const key = el.dataset.link;
-    const configured = cfg.links && cfg.links[key];
+    const configured = resolveLink(key);
+    const isWhatsApp = key === 'whatsapp' || key === 'whatsappMonthly' || key === 'whatsappLifetime';
+
     if(configured){
-      const isWhatsApp = key === 'whatsapp' || key === 'whatsappMonthly' || key === 'whatsappLifetime';
       el.href = isWhatsApp ? configured : withTracking(configured);
-      if(key !== 'demo') el.target = '_blank';
+
+      // WhatsApp dibuka di tab yang sama agar lebih stabil di mobile/app handoff.
+      if(isWhatsApp || key === 'demo'){
+        el.removeAttribute('target');
+      }else{
+        el.target = '_blank';
+      }
+
       el.rel = 'noopener noreferrer';
+    }else{
+      // Jangan biarkan CTA terlihat bisa diklik kalau link memang belum dikonfigurasi.
+      el.setAttribute('aria-disabled', 'true');
+      el.addEventListener('click', function(e){
+        e.preventDefault();
+        console.error('[BizControl] Link belum dikonfigurasi:', key);
+      });
     }
 
     if(products[key]){

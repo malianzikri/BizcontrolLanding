@@ -1,0 +1,9 @@
+BizControl V3.1 QA
+==================
+data-link keys found: demo, onlineLifetime, onlineMonthly, whatsapp, whatsappLifetime, whatsappMonthly
+All expected keys present: PASS
+script.js syntax: PASS
+WA monthly fallback: PASS
+WA lifetime fallback: PASS
+WA support fallback: PASS
+config.js before script.js: PASS
