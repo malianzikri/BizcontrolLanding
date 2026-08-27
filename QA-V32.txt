@@ -1,0 +1,7 @@
+V3.2 QA
+======
+script.js syntax: PASS
+Monthly WA URL present: PASS
+Lifetime WA URL present: PASS
+Support WA URL present: PASS
+Softer CTA present: PASS

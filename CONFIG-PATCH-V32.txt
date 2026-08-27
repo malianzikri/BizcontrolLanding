@@ -1,0 +1,16 @@
+V3.2 — PATCH WHATSAPP HANDOFF
+===============================
+
+Di `config.js` LANDING production, pastikan key berikut ada di dalam `links`:
+
+whatsapp: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20mau%20tanya%20tentang%20BizControl%20Online.',
+whatsappMonthly: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20tertarik%20paket%20Rp79rb%2Fbulan.%20Bisa%20dibantu%20info%20aktivasi%3F',
+whatsappLifetime: 'https://wa.me/628117199210?text=Halo%20Admin%20BizControl%2C%20saya%20tertarik%20paket%20sekali%20bayar%20Rp699rb.%20Bisa%20dibantu%20info%20aktivasi%3F',
+
+Pesan paket bulanan sekarang lebih pendek:
+"Halo Admin BizControl, saya tertarik paket Rp79rb/bulan. Bisa dibantu info aktivasi?"
+
+Tujuan:
+- tidak terdengar seperti customer sudah wajib beli
+- lebih ringan untuk cold traffic
+- customer cukup tekan Send di WhatsApp

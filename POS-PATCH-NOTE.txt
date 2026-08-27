@@ -1,0 +1,12 @@
+PATCH POS DEMO
+==============
+1. Ganti isi `demo-sales-config.js` dengan `POS-demo-sales-config-V32.js`.
+2. `demo-sales-layer.js` tidak wajib diubah untuk fungsi link.
+3. Kalau mau wording tombol POS lebih ringan, cari teks:
+   "Aktifkan Rp79rb"
+   lalu ganti menjadi:
+   "Tanya Paket Rp79rb"
+   dan cari:
+   "Aktifkan BizControl"
+   lalu ganti menjadi:
+   "Tanya Admin BizControl"
