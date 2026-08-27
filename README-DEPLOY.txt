@@ -80,3 +80,28 @@ TEST WAJIB SETELAH DEPLOY
 7. Footer -> WhatsApp Admin
 
 Semua harus menuju nomor 0811-7199-210.
+
+
+V3.2 — WHATSAPP HANDOFF OPTIMIZATION
+------------------------------------
+Masalah yang diamati:
+Meta mencatat klik WA/Prospek, tetapi belum ada chat nyata yang terkirim.
+
+Perubahan:
+- Pesan WA paket bulanan dipendekkan menjadi:
+  "Halo Admin BizControl, saya tertarik paket Rp79rb/bulan. Bisa dibantu info aktivasi?"
+- CTA landing dilunakkan dari "Aktifkan" menjadi "Tanya Admin / Tanya Paket".
+- Nomor tetap 0811-7199-210.
+- Event Lead + WhatsAppSalesClick tetap sama.
+- Direct checkout Lynk tetap tersedia sebagai opsi kedua.
+- Tidak mengubah Pixel, campaign, audience, atau harga.
+
+DEPLOY LANDING:
+- Ganti index.html
+- Ganti script.js
+- styles.css boleh tetap dari V3.1; file dalam paket ini tetap aman dipakai.
+- Update config.js sesuai CONFIG-PATCH-V32.txt
+
+DEPLOY POS DEMO:
+- Ganti demo-sales-config.js dengan isi POS-demo-sales-config-V32.js
+- Lihat POS-PATCH-NOTE.txt bila ingin melunakkan teks tombol POS juga.
